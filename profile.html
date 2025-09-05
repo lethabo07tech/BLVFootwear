@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Profile</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="profile-container">
+    <h1>Welcome to Your Profile</h1>
+    <p id="greeting"></p>
+    <a href="index.html" onclick="logout()">Logout</a>
+  </div>
+
+  <script>
+    const username = localStorage.getItem("loggedInUser");
+    const greeting = document.getElementById("greeting");
+
+    if (username) {
+      greeting.textContent = `Hello, ${username}!`;
+    } else {
+      greeting.textContent = "You are not logged in.";
+    }
+
+    function logout() {
+      localStorage.removeItem("loggedInUser");
+    }
+  </script>
+</body>
+</html>
